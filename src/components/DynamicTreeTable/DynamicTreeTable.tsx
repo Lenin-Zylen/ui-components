@@ -6,6 +6,13 @@ import { TreeTable, TreeTableSelectionKeysType, TreeTableSelectionEvent, TreeTab
 import { Column } from 'primereact/column';
 import './dynamictreetable.scss';
 
+//----------------(Todo)-----------------------------
+// 1. If any of the child is selected the parent should be partially checked
+// 2. If all the childs are selected the parent should be checked.
+// 3. If we select the parent all the childs should be selected.
+// 4. if we uncheck any one of the child, the parent should be partially checked
+// 5. All fully checked divisions should be listed in selected divisions.
+
 const DynamicTreeTable = (props: any) => {
 
     const [selectedDivisions, setSelectedDivisions] = useState([]);
@@ -284,7 +291,13 @@ const DynamicTreeTable = (props: any) => {
         const itemId = division.key;
 
         const handleCheckboxChange = (event, node) => {
+             // const element = document.getElementById(`treetable-input-${event.key}`)
+            // element.indeterminate = true;
+
             const isChecked = event.target.checked;
+            const isIndeterminate = event.target.indeterminate;
+
+
 
             console.log({ event, node });
 
